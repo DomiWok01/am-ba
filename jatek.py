@@ -13,6 +13,7 @@ def ellenorzes():
 
     if y[0][0] == y[1][1] == y[2][2] and y[0][0] != " ":
         return y[0][0]
+    
     if y[0][2] == y[1][1] == y[2][0] and y[0][2] != " ":
         return y[0][2]
     
@@ -40,18 +41,24 @@ while True:
         break
 
     if kovi == 0:
-        a = input("X-játékos (sor,oszlop): ").split(",")
-        if 1 <= int(a[0]) <= 3 and 1 <= int(a[1]) <= 3 and y[int(a[0])-1][int(a[1])-1] == " ":            
-            y[int(a[0])-1][int(a[1])-1] = "X" 
-            kovi = 1
-        else:
-            print("iden em tudsz rakni")
-            input()
+        try:
+            a = input("X-játékos (sor,oszlop): ").split(",")
+            if 1 <= int(a[0]) <= 3 and 1 <= int(a[1]) <= 3 and y[int(a[0])-1][int(a[1])-1] == " ":            
+                y[int(a[0])-1][int(a[1])-1] = "X" 
+                kovi = 1
+            else:
+                print("iden em tudsz rakni")
+                input()
+        except:
+            print("probald ujra!")
     else:
-        a = input("O-játékos (sor,oszlop): ").split(",")
-        if 1 <= int(a[0]) <= 3 and 1 <= int(a[1]) <= 3 and y[int(a[0])-1][int(a[1])-1] == " ":            
-            y[int(a[0])-1][int(a[1])-1] = "O" 
-            kovi = 0
-        else:
-            print("iden em tudsz rakni")
-            input()
+        try:
+            a = input("O-játékos (sor,oszlop): ").split(",")
+            if 1 <= int(a[0]) <= 3 and 1 <= int(a[1]) <= 3 and y[int(a[0])-1][int(a[1])-1] == " ":            
+                y[int(a[0])-1][int(a[1])-1] = "O" 
+                kovi = 0
+            else:
+                print("iden em tudsz rakni")
+                input()
+        except:
+            print("probald ujra!")
